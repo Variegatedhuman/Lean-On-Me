@@ -39,19 +39,16 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        password: {
-            type: DataTypes.STRING,
+        age: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
-                len: [8],
-            },
+                min: 13,
+            }
         },
-        password: {
+        gender: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                len: [8],
-            },
         },
     },
     {
