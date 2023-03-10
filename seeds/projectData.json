@@ -1,0 +1,52 @@
+{
+    "volunteer_opportunities": [
+      {
+        "id": 1,
+        "title": "Food Bank Volunteer",
+        "description": "Help sort and distribute food donations at a local food bank",
+        "organization": "Community Food Bank",
+        "location": "Chicago, IL",
+        "date": "2023-04-15",
+        "time": "10:00 AM",
+        "duration": "2 hours",
+        "requirements": "Must be able to lift up to 50 lbs",
+        "contact": {
+          "name": "John Smith",
+          "email": "john.smith@example.com",
+          "phone": "555-555-5555"
+        }
+      },
+      {
+        "id": 2,
+        "title": "Animal Shelter Volunteer",
+        "description": "Walk dogs, play with cats, and help keep the shelter clean",
+        "organization": "City Animal Shelter",
+        "location": "Springfield, IL",
+        "date": "2023-05-01",
+        "time": "1:00 PM",
+        "duration": "3 hours",
+        "requirements": "Must be comfortable working with animals",
+        "contact": {
+          "name": "Jane Doe",
+          "email": "jane.doe@example.com",
+          "phone": "555-555-5555"
+        }
+      },
+      {
+        "id": 3,
+        "title": "Park Cleanup Volunteer",
+        "description": "Help pick up litter and maintain a local park",
+        "organization": "City Parks Department",
+        "location": "Peoria, IL",
+        "date": "2023-05-15",
+        "time": "9:00 AM",
+        "duration": "4 hours",
+        "requirements": "Must be able to bend and lift",
+        "contact": {
+          "name": "Bob Johnson",
+          "email": "bob.johnson@example.com",
+          "phone": "555-555-5555"
+        }
+      }
+    ]
+  }
