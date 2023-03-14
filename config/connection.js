@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-require('dotenv').config();
+require ('dotenv').config();
 
 // create a connection for Heroku and localhost
 let sequelize;
@@ -12,10 +12,11 @@ if (process.env.JAWSDB_URL) {
         process.env.DB_USER,
         process.env.DB_PASSWORD, 
         {
-        host: 'localhost',
+        host: '127.0.0.1',
         dialect: 'mysql',
         port: 3306
         }
+
     );
 }
 
