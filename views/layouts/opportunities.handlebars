@@ -1,0 +1,13 @@
+{{#if opportunities.length}}
+  {{#each opportunities}}
+    <div class="opportunity">
+      <h2>{{title}}</h2>
+      <p>{{description}}</p>
+      <p>{{location}}</p>
+      <p>{{date}}</p>
+      <p>{{category}}</p>
+    </div>
+  {{/each}}
+{{else}}
+  <p>No opportunities found.</p>
+{{/if}}

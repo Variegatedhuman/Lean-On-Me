@@ -2,6 +2,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Comment = require('./Comment');
+const Opportunity = require('./Opportunity');
 
 // allow users to many many posts
 User.hasMany(Post, {
@@ -27,5 +28,14 @@ User.hasMany(Comment, {
 Post.hasMany(Comment, {
     foreignKey: 'post_id'
 });
+// Opportunity belongs to user
+Opportunity.belongsTo(User, {
+    foreignKey: 'user_id'
+});
 
-module.exports = { User, Post, Comment };
+// user can create many opportunities
+User.hasMany(Opportunity, {
+    foreignKey: 'user_id'
+});
+
+module.exports = { User, Post, Comment, Opportunity };
