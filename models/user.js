@@ -50,6 +50,16 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        language: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            get(){
+                return this.getDataValue("language").split(";")
+            },
+            set(val){
+                this.setDataValue("language", val.join(";"))
+            }
+        }
     },
     {
         hooks: {
@@ -57,6 +67,11 @@ User.init(
                 newUserData.password = await bcrypt.hash(newUserData.password, 10);
                 return newUserData;
             },
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+              }
+        
         },
         sequelize,
         timestamps: false,
