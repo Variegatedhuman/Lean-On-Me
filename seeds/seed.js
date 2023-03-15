@@ -11,15 +11,18 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of projectData.volunteer_opportunities) {
-    const randomUser = users.length ? users[Math.floor(Math.random() * users.length)] : null;
-    if (randomUser) {
-      await Opportunity.create({
-        ...project,
-        user_id: randomUser.id,
-      });
-    }
-  }
+  // for (const project of projectData.volunteer_opportunities) {
+  //   const randomUser = users.length ? users[Math.floor(Math.random() * users.length)] : null;
+  //   if (randomUser) {
+  //     await Opportunity.create({
+  //       ...project,
+  //       user_id: randomUser.id,
+  //     });
+  //   }
+  // }
+  const opporunties = await Opportunity.bulkCreate(projectData, {
+  });
+
 
   process.exit(0);
 };
