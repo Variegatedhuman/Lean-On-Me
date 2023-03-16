@@ -6,16 +6,18 @@ const handleSubmit = async (e) => {
   const formData = new FormData(searchForm);
   const query = formData.get("query");
   const category = formData.get("category");
- 
+  const searchTerm = document.querySelector("#search-term").value
+
 
   const response = await fetch(
-    `/api/posts?query=${query}&category=${category}`
+    `/api/posts?query=${query}&category=${category}`,{method:"POST",body:JSON.stringify(searchTerm)}
+
   );
   const { data } = await response.json();
 
   // Pass the search results to the handlebars template and render it
   const searchResultsTemplate = Handlebars.compile(document.querySelector('#search-results-template').innerHTML);
-  searchResults.innerHTML = searchResultsTemplate({ searchResults: data });
+  searchResults.innerHTML = searchResultsTemplate({ data });;
 
   // Hide the all opportunities section
   const allOpportunitiesSection = document.querySelector('#all-opportunities');
@@ -23,3 +25,5 @@ const handleSubmit = async (e) => {
 };
 
 searchForm.addEventListener("submit", handleSubmit);
+
+
