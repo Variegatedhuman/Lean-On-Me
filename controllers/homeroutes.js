@@ -40,7 +40,6 @@ router.post('/search', (req, res) => {
   }
 
   res.render('opportunities', { opportunities: opportunities });
-  console.log(response)
 });
 
 module.exports = router;
