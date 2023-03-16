@@ -7,7 +7,30 @@
         "date": "2023-04-15",
         "category": "Humanity",
         "user_id": "1"
-        }
-      
+        },
+        {
+          "title": "Animal Shelter",
+          "post_text": "Feed, play, and love animals",
+          "location": "Chicago, IL",
+          "date": "2023-04-15",
+          "category": "Animals",
+          "user_id": "1"
+          },
+          {
+            "title": "Clear Up Trash",
+            "post_text": "Join our weekly clean up crew and beautiful your neighborhood!",
+            "location": "Chicago, IL",
+            "date": "2023-04-15",
+            "category": "Environment",
+            "user_id": "1"
+            },
+            {
+              "title": "Homeless Shelter",
+              "post_text": "Come help serve food for the less fortunate",
+              "location": "Chicago, IL",
+              "date": "2023-04-15",
+              "category": "Humanity",
+              "user_id": "1"
+            }
     ]
   
