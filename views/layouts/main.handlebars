@@ -8,23 +8,30 @@
     <title>Lean On Me</title>
 
 </head>
-
-<body>
-    <div class="container">
-
-        <div class="row">
-
-
-            <div class="col-md-12">
-                <h1>{{title}}</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                {{{body}}}
-            </div>
-        </div>
+<body >
+    <div class = "container" >
+        <header>
+            <h1>
+            <p class="volunteer-title">Lean On Me</p>
+            </h1>
+            <nav>
+                {{#if loggedIn}}
+                <a href="/" class="homepage">Homepage</a>
+                <button id="logout" class="btn-no-style">Logout</button>
+                {{else}}
+                <a href="/" class="homepage">Homepage</a>
+                <a href="/login">Login</a>
+                {{/if}}
+            </nav>
+        </header>
+        <main>
+            {{{body}}}
+        </main>
     </div>
+
+{{#if loggedIn}}
+<script src="/public/javascript/logout.js"></script>
+{{/if}}
 
 </body>
 
