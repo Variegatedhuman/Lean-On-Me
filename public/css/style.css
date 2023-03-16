@@ -1,25 +1,79 @@
-header, .project:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .no-button {
-    background: none;
-    border: none;
+/* Set body styles */
+body {
+    margin: 0;
     padding: 0;
-    cursor: pointer;
-    color: #1b89bc;
-    text-decoration: none;
-    font-size: 100%;
-  }
-  
-  .no-button:hover {
-    color: #065b83;
-    text-decoration: underline;
-  }
-  
-  .dollar-amount {
-    color: #056605;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+/* Set search box styles */
+#search-box {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f7f7f7;
+    border-right: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Style search form */
+#search-form {
+    margin-bottom: 20px;
+}
+
+#search-form label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    margin-left: -5px;
-  }
-  
+}
+
+#search-form input[type="text"], #search-form select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#search-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-form button[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+/* Style search results */
+#opportunities {
+    margin-left: 320px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-area {
+  margin-right: 50px;
+  width: 300px;
+}
+
+.search-box {
+  width: 100%;
+}
+
+.results {
+  flex-grow: 1;
+}

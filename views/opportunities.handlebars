@@ -1,11 +1,29 @@
+{{#if searchResults}}
+  <h3>Search Results:</h3>
+  {{#each searchResults}}
+    <div class="opportunity">
+      <h2>{{title}}</h2>
+      <p>{{post_text}}</p>
+      <p>{{location}}</p>
+      <p>{{date}}</p>
+      <p>{{time}}</p>
+      <p>{{category}}</p>
+      <p>{{user_id}}</p>
+    </div>
+  {{/each}}
+{{/if}}
+
 {{#if opportunities.length}}
+  <h3>All Opportunities:</h3>
   {{#each opportunities}}
     <div class="opportunity">
       <h2>{{title}}</h2>
-      <p>{{description}}</p>
+      <p>{{post_text}}</p>
       <p>{{location}}</p>
       <p>{{date}}</p>
+      <p>{{time}}</p>
       <p>{{category}}</p>
+      <p>{{user_id}}</p>
     </div>
   {{/each}}
 {{else}}

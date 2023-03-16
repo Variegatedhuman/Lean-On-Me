@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Volunteer Opportunities</title>
+    
 </head>
 
 <body>
@@ -17,12 +18,13 @@
 
     <h2>Filter by:</h2>
     <form id="filter-form">
-        <label for="project-type">Project Type:</label>
-        <select id="project-type" name="project-type">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
             <option value="">--Any--</option>
             <option value="healthcare">Healthcare</option>
             <option value="education">Education</option>
             <option value="environment">Environment</option>
+            <option value="humanity">Humanity</option>
         </select><br>
 
         <label for="location">Location:</label>
@@ -39,6 +41,9 @@
             <option value="arabic">Arabic</option>
             <option value="mandarin">Mandarin</option>
         </select><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br>
 
         <!-- Add additional filters here -->
 
@@ -73,10 +78,11 @@
 
                 // Get search term and filter data
                 var searchTerm = $("#search-term").val();
-                var projectType = $("#project-type").val();
+                var category = $("#category").val();
                 var location = $("#location").val();
                 var is18OrOlder = $("#age").is(":checked");
                 var language = $("#language").val();
+                var date = $("#date").val();
 
                 // Add additional filters here
 
@@ -87,7 +93,7 @@
                     dataType: "json",
                     data: {
                         searchTerm: searchTerm,
-                        projectType: projectType,
+                        category: category,
                         location: location,
                         is18OrOlder: is18OrOlder,
                         language: language
