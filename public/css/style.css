@@ -1,6 +1,7 @@
 header, .project:not(:last-child) {
     border-bottom: 1px solid #ccc;
   }
+  #ismap { height: 180px; }
   
   .no-button {
     background: none;

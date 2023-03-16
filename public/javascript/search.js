@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
