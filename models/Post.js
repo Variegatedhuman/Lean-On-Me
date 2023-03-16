@@ -32,7 +32,19 @@ Post.init(
                 model: 'user',
                 key: 'id'
             }
-        }
+        },
+          location: {
+            type: DataTypes.STRING,
+            allowNull: false
+          },
+          date: {
+            type: DataTypes.DATE,
+            allowNull: false
+          },
+          category: {
+            type: DataTypes.STRING,
+            allowNull: false
+          }
         },
         {
             sequelize,

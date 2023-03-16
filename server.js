@@ -9,8 +9,7 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
-//const PORT = process.env.PORT || 3001;
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({
     helpers
@@ -39,6 +38,11 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
 
 app.use(routes);
 
