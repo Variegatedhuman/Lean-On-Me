@@ -5,7 +5,14 @@ const sequelize = require('../config/connection');
 
 router.get('/', (req, res) => {
   // Render the homepage template
-  res.render('search');
+
+
+
+
+
+  res.render('search',{
+    markerList: ["full list"]
+  });
 });
 
 // redirecting users to homepage once they log in

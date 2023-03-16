@@ -5,6 +5,25 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
+
+// setup
+ 
+async function getCord(){
+    const apikey= "5d8f706975b0652dc3b0077ecad2304a";
+    const search = "251 E Huron St, Chicago, IL 60611";
+    const coordinatesURL= `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apikey}`
+   
+    const res = await fetch(coordinatesURL);
+    const data = await res.json();
+    console.log(data);
+
+}
+getCord();
+
+
+
+
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -47,5 +66,6 @@ app.use((req, res, next) => {
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => console.log('Now listening', PORT));
 });
+

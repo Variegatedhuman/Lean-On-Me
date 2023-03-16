@@ -89,7 +89,7 @@
 
                 // Send search request to server
                 $.ajax({
-                    url: "/search",
+                    url: "/api/search",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -104,6 +104,11 @@
                     success: function (response) {
                         // Render the search results with the Handlebars template
                         $("#opportunities").html(opportunitiesTemplate(response));
+                   
+                   hospitalList.map(hospital => {
+    L.marker([hospital.lat, hospital.lng]).addTo(map);
+})
+                   
                     },
                     error: function () {
                         console.log("An error occurred while processing the search request.");
