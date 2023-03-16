@@ -2,11 +2,12 @@
      [
       {
         "title": "Food Bank Volunteer",
-        "description": "Help sort and distribute food donations at a local food bank",
+        "post_text": "Help sort and distribute food donations at a local food bank",
         "location": "Chicago, IL",
         "date": "2023-04-15",
         "time": "10:00 AM",
-        "category": "Humanity"
+        "category": "Humanity",
+        "user_id": "1442"
         }
       
     ]

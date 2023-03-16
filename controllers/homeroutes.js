@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
   // Render the homepage template
-  res.render('login');
+  res.render('search');
 });
 
 module.exports = router;
