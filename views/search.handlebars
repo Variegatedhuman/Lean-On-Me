@@ -8,7 +8,12 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+    <h1>Volunteer Opportunities</h1>
+    
+=======
   <h1>Volunteer Opportunities</h1>
+>>>>>>> edf87f45f5df5567bc89d1ea2b437680f08e7808
 
   <form id="search-form">
     <label for="search-term">Search for Opportunities:</label>
@@ -93,6 +98,36 @@
 
         // Add additional filters here
 
+<<<<<<< HEAD
+                // Send search request to server
+                $.ajax({
+                    url: "/api/search",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        searchTerm: searchTerm,
+                        category: category,
+                        location: location,
+                        is18OrOlder: is18OrOlder,
+                        language: language
+
+                        // Add additional filters here
+                    },
+                    success: function (response) {
+                        // Render the search results with the Handlebars template
+                        $("#opportunities").html(opportunitiesTemplate(response));
+                   
+                   hospitalList.map(hospital => {
+    L.marker([hospital.lat, hospital.lng]).addTo(map);
+})
+                   
+                    },
+                    error: function () {
+                        console.log("An error occurred while processing the search request.");
+                    }
+                });
+            });
+=======
         // Send search request to server
         $.ajax({
           url: "/search",
@@ -111,6 +146,7 @@
             // Render the search results with the Handlebars template
             console.log(response)
             console.log(opportunitiesTemplate(response))
+>>>>>>> edf87f45f5df5567bc89d1ea2b437680f08e7808
 
 
             $("#opportunities").html(opportunitiesTemplate(response));
