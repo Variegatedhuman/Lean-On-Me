@@ -59,3 +59,21 @@ body {
     padding: 20px;
     box-sizing: border-box;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-area {
+  margin-right: 50px;
+  width: 300px;
+}
+
+.search-box {
+  width: 100%;
+}
+
+.results {
+  flex-grow: 1;
+}
