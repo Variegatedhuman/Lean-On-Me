@@ -114,7 +114,7 @@
                    
                    hospitalList.map(hospital => {
     L.marker([hospital.lat, hospital.lng]).addTo(map);
-})
+});
                    
                     },
                     error: function () {
@@ -128,11 +128,8 @@
           },
           error: function () {
             console.log("An error occurred while processing the search request.");
-          }
-        });
-      });
-
-    });
+          });
+      
   </script>
 </body>
 
