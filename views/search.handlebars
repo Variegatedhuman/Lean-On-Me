@@ -17,8 +17,9 @@
 
     <h2>Filter by:</h2>
     <form id="filter-form">
-        <label for="project-type">Project Type:</label>
-        <select id="project-type" name="project-type">
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="">--Any--</option>
             <option value="healthcare">Healthcare</option>
             <option value="education">Education</option>
             <option value="environment">Environment</option>
@@ -89,7 +90,7 @@
 
                 // Send search request to server
                 $.ajax({
-                    url: "/api/search",
+                    url: "/search",
                     type: "POST",
                     dataType: "json",
                     data: {
@@ -104,29 +105,26 @@
                     success: function (response) {
                         // Render the search results with the Handlebars template
                         $("#opportunities").html(opportunitiesTemplate(response));
-                   
-                   hospitalList.map(hospital => {
-    L.marker([hospital.lat, hospital.lng]).addTo(map);
-})
-                   
+
+                    
+                        hospitalList.map(hospital => {
+                            L.marker([hospital.lat, hospital.lng]).addTo(map);
+                        });
+
                     },
                     error: function () {
                         console.log("An error occurred while processing the search request.");
                     }
                 });
-            });
+      });
 
 
-            $("#opportunities").html(opportunitiesTemplate(response));
-          },
-          error: function () {
-            console.log("An error occurred while processing the search request.");
-                    }
-                });
-            });
-
+        
         });
-    </script>
-</body>
+            
 
-</html>
+        
+                </script>
+    </body>
+    
+    </html>
