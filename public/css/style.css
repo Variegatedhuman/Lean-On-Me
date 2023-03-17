@@ -4,6 +4,10 @@ body {
   padding: 0;
   font-family: sans-serif;
   font-size: 16px;
+  background-image: url("https://www.brighthorizons.com/resources/-/media/Images/Blog/2013-10-22_Missy-job-satisfaction_iStock_000016488217Large_source.ashx");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Set search box styles */
@@ -22,6 +26,8 @@ body {
 /* Style search form */
 #search-form {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 #search-form label {
@@ -82,9 +88,24 @@ body {
   flex-direction: row;
 }
 
+main {
+display: flex;
+}
+
 .search-area {
-  margin-right: 50px;
-  width: 300px;
+  display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    background-color:#000000d0;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    padding:0% 0% 2% 2%;
+    line-height: 3em;
+    color: white;
+    height: fit-content;
+    min-width: 18%;
+
 }
 
 .search-box {
@@ -97,18 +118,31 @@ body {
 
 /* Style for the heading */
 h3 {
-  border: 2px solid black;
-  padding: 10px;
-  text-align: center;
+
+    background-color:#000000d0;
+    font-size: 2.5rem;
+    border-radius: 30px;
+    padding:2% 2% 2% 2%;
+    line-height: 1.5em;
+    color: white;
+    text-align: center;
+    min-width: 110%;
+    margin-top: -1%;
 }
 
 /* Style for each opportunity */
 .opportunity {
-  border: 1px solid black;
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: lightgray;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color:#000000d0;
+    font-size: 2.5rem;
+    border-radius: 30px;
+    padding:2% 2% 2% 2%;
+    line-height: 1.3em;
+    color: white;
+    min-width: 120%;
+    margin-bottom: 1%;
 }
 
 /* Style for the opportunity title */
@@ -119,4 +153,13 @@ h3 {
 /* Style for the opportunity location, date, category, and user ID */
 .opportunity p {
   margin: 0;
+}
+
+.volunteer-title {
+  text-align: center;
+  font-size: 3em;
+  font-size: 4em;
+    color: rgb(237, 234, 59);
+    text-shadow: 2px 2px 5px rgb(33, 2, 44);
+    font-family: 'Petit Formal Script', cursive;
 }

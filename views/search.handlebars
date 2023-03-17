@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Volunteer Opportunities</title>
+    <title class="volunteer-title">Volunteer Opportunities</title>
 </head>
 
 <body>
-    <h1>Volunteer Opportunities</h1>
-
+    
+    <container class="search-area">
     <form id="search-form">
         <label for="search-term">Search for Opportunities:</label>
         <input type="text" id="search-term" name="search-term">
@@ -48,7 +48,7 @@
 
         <button type="submit">Apply Filters</button>
     </form>
-
+</container>
     <div id="opportunities"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -59,11 +59,13 @@
       \{{#opportunities}}
     <div class="opportunity">
       <h2>Opportunities: \{{title}}</h2>
-      <p>\{{post_text}}</p>
-      <p>\{{location}}</p>
-      <p>\{{date}}</p>
-      <p>\{{category}}</p>
-      <p>\{{user_id}}</p>
+      <p>Project Description: \{{post_text}}</p>
+      <p>Location: \{{location}}</p>
+      <p>Project Date: \{{format_date date}}</p>
+      <p>Project Type: \{{category}}</p>
+      <p>Contact Info: \{{contact_info}}</p>
+
+      {{!-- <p>\{{user_id}}</p> --}}
     </div>
     \{{/opportunities}}
     \{{else}}
@@ -121,7 +123,16 @@
 
         
         });
-            
+            Handlebars.registerHelper('format_date', function(date) {
+  // Assuming `date` is a string in the format of "YYYY-MM-DDTHH:mm:ss.SSSZ"
+  const dateObj = new Date(date);
+  const day = dateObj.getUTCDate().toString().padStart(2, '0');
+  const month = (dateObj.getUTCMonth() + 1).toString().padStart(2, '0');
+  const year = dateObj.getUTCFullYear();
+  const formattedDate = `${month}/${day}/${year}`;
+  return formattedDate;
+});
+
 
         
                 </script>
