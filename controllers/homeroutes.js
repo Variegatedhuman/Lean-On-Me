@@ -3,7 +3,6 @@ const { Post, User, Comment } = require('../models');
 const { Sequelize } = require("sequelize");
 
 router.get('/', (req, res) => {
-<<<<<<< HEAD
   // Render the homepage template
 
 
@@ -13,9 +12,6 @@ router.get('/', (req, res) => {
   res.render('search',{
     markerList: ["full list"]
   });
-=======
-  res.render('search');
->>>>>>> edf87f45f5df5567bc89d1ea2b437680f08e7808
 });
 
 router.get('/login', (req, res) => {
