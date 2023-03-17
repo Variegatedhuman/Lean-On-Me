@@ -64,15 +64,7 @@ body {
     margin-left: -5px;
   }
   
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 
 #search-form button[type="submit"]:hover {
   background-color: #3e8e41;
