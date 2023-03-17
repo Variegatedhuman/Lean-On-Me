@@ -86,23 +86,37 @@
         var language = $("#language").val();
         var date = $("#date").val();
         // Add additional filters here
-        // Send search request to server
-        $.ajax({
-          url: "/search",
-          type: "POST",
-          dataType: "json",
-          data: {
-            searchTerm: searchTerm,
-            category: category,
-            location: location,
-            is18OrOlder: is18OrOlder,
-            language: language
-            // Add additional filters here
-          },
-          success: function (response) {
-            // Render the search results with the Handlebars template
-            console.log(response)
-            console.log(opportunitiesTemplate(response))
+
+                // Send search request to server
+                $.ajax({
+                    url: "/api/search",
+                    type: "POST",
+                    dataType: "json",
+                    data: {
+                        searchTerm: searchTerm,
+                        category: category,
+                        location: location,
+                        is18OrOlder: is18OrOlder,
+                        language: language
+
+                        // Add additional filters here
+                    },
+                    success: function (response) {
+                        // Render the search results with the Handlebars template
+                        $("#opportunities").html(opportunitiesTemplate(response));
+                   
+                   hospitalList.map(hospital => {
+    L.marker([hospital.lat, hospital.lng]).addTo(map);
+})
+                   
+                    },
+                    error: function () {
+                        console.log("An error occurred while processing the search request.");
+                    }
+                });
+            });
+
+
             $("#opportunities").html(opportunitiesTemplate(response));
           },
           error: function () {
