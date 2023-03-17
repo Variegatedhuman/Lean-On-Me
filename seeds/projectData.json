@@ -5,7 +5,7 @@
         "post_text": "Help sort and distribute food donations at a local food bank",
         "location": "Chicago, IL",
         "date": "2023-04-15",
-        "category": "Humanity",
+        "category": "humanity",
         "user_id": "1"
         },
         {
@@ -13,7 +13,7 @@
           "post_text": "Feed, play, and love animals",
           "location": "Chicago, IL",
           "date": "2023-04-15",
-          "category": "Animals",
+          "category": "animals",
           "user_id": "1"
           },
           {
@@ -21,7 +21,7 @@
             "post_text": "Join our weekly clean up crew and beautiful your neighborhood!",
             "location": "Chicago, IL",
             "date": "2023-04-15",
-            "category": "Environment",
+            "category": "environment",
             "user_id": "1"
             },
             {
@@ -29,7 +29,7 @@
               "post_text": "Come help serve food for the less fortunate",
               "location": "Chicago, IL",
               "date": "2023-04-15",
-              "category": "Humanity",
+              "category": "humanity",
               "user_id": "1"
             }
     ]

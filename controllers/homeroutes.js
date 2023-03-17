@@ -5,10 +5,6 @@ const { Sequelize } = require("sequelize");
 router.get('/', (req, res) => {
   // Render the homepage template
 
-
-
-
-
   res.render('search',{
     markerList: ["full list"]
   });
