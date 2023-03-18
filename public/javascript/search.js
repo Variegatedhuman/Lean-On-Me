@@ -10,7 +10,7 @@ const handleSubmit = async (e) => {
 
 
   const response = await fetch(
-    `/api/posts?query=${query}&category=${category}`,{method:"POST",body:JSON.stringify(searchTerm)}
+    `/api/posts?query=${query}&category=${category}`,{method:"GET",body:JSON.stringify(searchTerm)}
 
   );
   const { data } = await response.json();
