@@ -10,6 +10,36 @@ router.get('/', (req, res) => {
   });
 });
 
+router.post('/comment', async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      comment_text: req.body.comment_text,
+      user_id: req.session.user_id,
+      post_id: req.body.post_id
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/posts/:id/comment', async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const comments = await Comment.findAll({
+      where: {
+        post_id: postId
+      }
+    });
+    res.status(200).json(comments);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');

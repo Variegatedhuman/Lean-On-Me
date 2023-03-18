@@ -4,6 +4,8 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+const commentRoutes = require('./controllers/api/comment-routes');
+
 
 
 // setup
@@ -53,6 +55,8 @@ const sess = {
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(session(sess));
+
+app.use('/api/comments', commentRoutes);
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

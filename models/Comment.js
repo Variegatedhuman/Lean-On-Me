@@ -14,6 +14,7 @@ Comment.init(
         title: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: "CommentX",
             validate: {
                 len: [1]
             }
@@ -27,7 +28,8 @@ Comment.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
+            defaultValue: "1",
             references: {
                 model: 'user',
                 key: 'id'
