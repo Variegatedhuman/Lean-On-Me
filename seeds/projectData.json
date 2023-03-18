@@ -4,33 +4,37 @@
         "title": "Food Bank Volunteer",
         "post_text": "Help sort and distribute food donations at a local food bank",
         "location": "Chicago, IL",
-        "date": "2023-04-15",
-        "category": "humanity",
-        "user_id": "1"
+        "date": "04-15-2023",
+        "category": "humanitarian",
+        "user_id": "1",
+        "contact_info": "(847) 668-4872"
         },
         {
           "title": "Animal Shelter",
           "post_text": "Feed, play, and love animals",
           "location": "Chicago, IL",
-          "date": "2023-04-15",
+          "date": "04-15-2023",
           "category": "animals",
-          "user_id": "1"
+          "user_id": "1",
+          "contact_info": "(847) 668-4872"
           },
           {
             "title": "Clear Up Trash",
             "post_text": "Join our weekly clean up crew and beautiful your neighborhood!",
             "location": "Chicago, IL",
-            "date": "2023-04-15",
+            "date": "04-15-2023",
             "category": "environment",
-            "user_id": "1"
+            "user_id": "1",
+            "contact_info": "(847) 668-4872"
             },
             {
               "title": "Homeless Shelter",
               "post_text": "Come help serve food for the less fortunate",
               "location": "Chicago, IL",
-              "date": "2023-04-15",
-              "category": "humanity",
-              "user_id": "1"
+              "date": "04-15-2023",
+              "category": "humanitarian",
+              "user_id": "1",
+              "contact_info": "(847) 668-4872"
             }
     ]
   

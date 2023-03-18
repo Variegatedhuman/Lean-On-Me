@@ -45,7 +45,12 @@ Post.init(
         category: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        contact_info: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: false,
+        },
     },
     {
         sequelize,
