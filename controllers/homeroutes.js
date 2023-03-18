@@ -1,13 +1,40 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const { Sequelize } = require("sequelize");
+const { hospitalList, educationList, hmList, animalList } = require('../config/locationData');
 
 router.get('/', (req, res) => {
   // Render the homepage template
+  const fullList = hospitalList.concat(educationList).concat(animalList).concat(hmList);
 
-  res.render('search',{
-    markerList: ["full list"]
+  console.log("fulllist:",fullList);
+  res.render('home',{
+    markerList: fullList,
+
   });
+});
+
+router.post('/', (req, res) => {
+  // Render the homepage template
+  console.log("my selections:",req.body)
+  let queryList;
+
+  if(req.body.category === 'healthcare'){
+    queryList = hospitalList
+  }else if(req.body.category === 'education'){
+    queryList = educationList;
+  }else if(req.body.category === 'humanitarian'){
+    queryList = hmList;
+  }else if(req.body.category === 'animals'){
+    queryList = animalList;
+  }
+ 
+  console.log("what are we getting?", queryList)
+
+  res.render('home',{
+    markerList: queryList,
+  })
+  ;
 });
 
 router.get('/login', (req, res) => {
@@ -22,7 +49,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/', async (req, res) => {
+router.get('/test', async (req, res) => {
   try {
     const posts = await Post.findAllPosts({
     });

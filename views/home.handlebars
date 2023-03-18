@@ -4,6 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title>Volunteer Opportunities</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <style>
+      #map { height: 180px; }
+    </style>
+
 </head>
 
 <body>
@@ -16,7 +32,7 @@
     </form>
 
     <h2>Filter by:</h2>
-    <form id="filter-form">
+    <form id="" action="/" method="post">
         <label for="category">Category:</label>
         <select id="category" name="category">
             <option value="">--Any--</option>
@@ -29,8 +45,8 @@
             
         </select><br>
 
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location"><br>
+        {{!-- <label for="location">Location:</label>
+        <input type="text" id="location" name="location"><br> --}}
 
         {{!-- <label for="age">18 or older:</label>
         <input type="checkbox" id="age" name="age" value="true"><br>
@@ -48,7 +64,12 @@
 
         <button type="submit">Apply Filters</button>
     </form>
-
+    
+    <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
+      </div>
     <div id="opportunities"></div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -69,7 +90,8 @@
     \{{else}}
     <p>No opportunities found.</p>
     \{{/if}}
-    </script>
+    
+     
     
         <script>
     $(document).ready(function () {
@@ -107,28 +129,39 @@
                         $("#opportunities").html(opportunitiesTemplate(response));
 
                     
-                        hospitalList.map(hospital => {
-                            L.marker([hospital.lat, hospital.lng]).addTo(map);
-                        });
+                       
 
                     },
                     error: function () {
                         console.log("An error occurred while processing the search request.");
                     }
-                });
-      });
+                }); //end of ajax
 
+                $("#opportunities").html(opportunitiesTemplate(response));
 
-            $("#opportunities").html(opportunitiesTemplate(response));
-          },
-          error: function () {
-            console.log("An error occurred while processing the search request.");
-          }
-        });
-      });
+         
+        }); //end of search form
+      }); //end of document ready
 
-    });
+   
   </script>
+ <script>
+
+const hospitalList = [
+    {{#markerList}}
+          {
+            name: "{{this.name}}",
+            address: "{{this.address}}",
+            lat: {{this.lat}},
+            lng: {{this.lng}},
+          },  
+             
+    {{/markerList}}
+]
+    
+  </script>
+  <script src="javascript/search.js"></script>
+ 
 </body>
 
 </html>
