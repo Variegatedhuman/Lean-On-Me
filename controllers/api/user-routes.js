@@ -50,60 +50,84 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a user
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
-        const dbUserData = await User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        });
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-
-            res.json(dbUserData);
-        });
+      const dbUserData = await User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+        location: req.body.location,
+        age: req.body.age,
+        gender: req.body.gender,
+        language: req.body.language,
+      });
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.name = dbUserData.name;
+        req.session.loggedIn = true;
+  
+        res.redirect(`/profile/${dbUserData.id}`);
+      });
     } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+      console.log(err);
+      res.status(500).json(err);
     }
-});
+  });
 
 // login route
-router.get('/', async (req, res) => {
+router.post('/login', async (req, res) => {
     try {
-        const dbUserData = await User.findOne({
-            where: {
-                email: req.query.email
-            }
+      const dbUserData = await User.findOne({
+        where: {
+          email: req.body.email,
+        },
+      });
+  
+      if (!dbUserData) {
+        res.status(404).json({ message: 'The username or password you entered is incorrect' });
+        return;
+      }
+  
+      const validPassword = dbUserData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res.status(400).json({ message: 'The username or password you entered is incorrect' });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+  
+        // Redirect to profile page
+        res.redirect('/profile');
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
+
+// profile route
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+        // Get the user data from the database
+        const dbUserData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
         });
 
-        if (!dbUserData) {
-            res.status(404).json({ message: 'The username or password you entered is incorrect' });
-            return;
-        }
-
-        const validPassword = dbUserData.checkPassword(req.query.password);
-
-        if (!validPassword) {
-            res.status(400).json({ message: 'The username or password you entered is incorrect' });
-            return;
-        }
-
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
-
-            res.json({ user: dbUserData, message: 'You have been logged in!' });
-        });
-
+        // Pass the user data to the profile handlebars template
+        const user = dbUserData.get({ plain: true });
+        res.render('profile', { user });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
+
+  
 
 // Logout route
 router.post("/logout", withAuth, (req, res) => {

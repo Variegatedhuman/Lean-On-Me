@@ -25,5 +25,3 @@ const handleSubmit = async (e) => {
 };
 
 searchForm.addEventListener("submit", handleSubmit);
-
-
