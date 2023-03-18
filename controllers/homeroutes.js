@@ -25,7 +25,7 @@ router.post('/comment', async (req, res) => {
   }
 });
 
-router.get('/posts/:id/comment', async (req, res) => {
+router.get('/post/:id/comment', async (req, res) => {
   try {
     const postId = req.params.id;
     const comments = await Comment.findAll({
@@ -54,10 +54,11 @@ router.get('/signup', (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.findAllPosts({
+    const posts = await Post.findAll({
     });
     const postData = posts.map((post) => post.get({ plain: true }));
-    res.render('opportunities', { postData });
+    console.log(postData)
+    res.render('search', postData );
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

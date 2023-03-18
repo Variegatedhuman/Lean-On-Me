@@ -6,12 +6,12 @@ const withAuth = require('../../utils/auth');
 // route to GET all users
 router.get('/', (req, res) => {
     Post.findAll({
-        attributes: [
-            'id',
-            'post_text',
-            'title',
-            'created_at'
-        ],
+        // attributes: [
+        //     'id',
+        //     'post_text',
+        //     'title',
+        //     'created_at'
+        // ],
         // will show latest post first
         order: [
             ['created_at',
@@ -21,15 +21,15 @@ router.get('/', (req, res) => {
             // Comment model will attach to username
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
+                // attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                // include: {
+                //     model: User,
+                //     attributes: ['username']
+                // }
             },
             {
                 model: User,
-                attributes: ['username']
+                // attributes: ['username']
             },
         ]
     })
