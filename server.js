@@ -9,12 +9,12 @@ const commentRoutes = require('./controllers/api/comment-routes');
 
 
 // setup
- 
-async function getCord(){
-    const apikey= "5d8f706975b0652dc3b0077ecad2304a";
+
+async function getCord() {
+    const apikey = "5d8f706975b0652dc3b0077ecad2304a";
     const search = "251 E Huron St, Chicago, IL 60611";
-    const coordinatesURL= `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apikey}`
-   
+    const coordinatesURL = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apikey}`
+
     const res = await fetch(coordinatesURL);
     const data = await res.json();
     console.log(data);
@@ -49,6 +49,8 @@ const sess = {
     })
 };
 
+
+
 // Set up Handlebars views directory
 app.set('views', path.join(__dirname, 'views'));
 
@@ -64,8 +66,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  res.locals.session = req.session;
-  next();
+    res.locals.session = req.session;
+    next();
 });
 
 app.use(routes);
