@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../models');
 const { Sequelize } = require("sequelize");
-const { hospitalList, educationList, hmList, animalList } = require('../config/locationData');
+const { hospitalList, educationList, hmList, animalList, elderlyCareList, environmentalList } = require('../config/locationData');
 
 router.get('/', (req, res) => {
   // Render the homepage template
-  const fullList = hospitalList.concat(educationList).concat(animalList).concat(hmList);
+  const fullList = hospitalList.concat(educationList).concat(animalList).concat(hmList).concat(elderlyCareList).concat(environmentalList);
 
   console.log("fulllist:",fullList);
   res.render('home',{
@@ -27,6 +27,10 @@ router.post('/', (req, res) => {
     queryList = hmList;
   }else if(req.body.category === 'animals'){
     queryList = animalList;
+  }else if(req.body.category === 'elderly'){
+    queryList = elderlyCareList;
+  }else if(req.body.category === 'environment'){
+    queryList = environmentalList;
   }
  
   console.log("what are we getting?", queryList)

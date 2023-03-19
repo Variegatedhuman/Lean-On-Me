@@ -187,3 +187,7 @@ h3 {
 .location-box {
   max-width: 60%;
 }
+
+#map {
+  width: 250px;
+}

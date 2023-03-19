@@ -10,7 +10,7 @@ async function signupFormHandler(event) {
   const language = document.querySelector('#language-signup').value.trim();
 
   if (name && email && password && location && age && gender && language) {
-      const response = await fetch('/users', {
+      const response = await fetch('/users/signup', {
           method: 'post',
           body: JSON.stringify({
               name,

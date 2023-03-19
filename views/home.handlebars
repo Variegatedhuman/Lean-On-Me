@@ -11,11 +11,7 @@
       crossorigin=""
     />
 
-    <script
-      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-      crossorigin=""
-    ></script>
+    
     <style>
       #map { height: 180px; }
     </style>
@@ -23,16 +19,17 @@
 </head>
 
 <body>
-    <h1>Volunteer Opportunities</h1>
-
+     <h1 class="volunteer-title">Volunteer Opportunities</h1>
+    <div class="searchbar-projects">
+        <container class="search-area">
     <form id="search-form">
         <label for="search-term">Search for Opportunities:</label>
         <input type="text" id="search-term" name="search-term">
         <button type="submit">Search</button>
     </form>
 
-    <h2>Filter by:</h2>
-    <form id="" action="/" method="post">
+    <h2 class"filter-by">Filter by:</h2>
+    <form id="" class="filter-form" action="/" method="post">
         <label for="category">Category:</label>
         <select id="category" name="category">
             <option value="">--Any--</option>
@@ -63,33 +60,84 @@
         <!-- Add additional filters here -->
 
         <button type="submit">Apply Filters</button>
-    </form>
-    
-    <div class="row">
+
+        <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+        <div class="row">
         <div class="col-md-12">
           <div id="map"></div>
         </div>
       </div>
+      <script>
+
+const hospitalList = [
+
+    {{#markerList}}
+          {
+            name: "{{this.name}}",
+            address: "{{this.address}}",
+            lat: {{this.lat}},
+            lng: {{this.lng}},
+          },  
+             
+    {{/markerList}}
+]
+  
+  </script>
+  </form>
+  </container>
     <div id="opportunities"></div>
+    
+  </div>
+
+      
+        
+    
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
     <script id="opportunities-template" type="text/x-handlebars-template">
           \{{#if opportunities}}
-    <h3>All Opportunities:</h3>
       \{{#opportunities}}
     <div class="opportunity">
-      <h2>Opportunities: \{{title}}</h2>
-      <p>\{{post_text}}</p>
-      <p>\{{location}}</p>
-      <p>\{{date}}</p>
-      <p>\{{category}}</p>
-      <p>\{{user_id}}</p>
-    </div>
+      <h2 class="project-header">Project: \{{title}}</h2>
+      <p>Project Description: \{{post_text}}</p>
+        <p>Location: \{{location}}</p>
+        <p>Project Date: \{{format_date date}}</p>
+        <p>Project Type: \{{category}}</p>
+        <p>Contact Info: \{{contact_info}}</p>
+         {{!-- <div class="comment-form">
+          <form id="comment-form-{{id}}">
+            <label for="comment">Leave a comment:</label>
+            <textarea id="comment" name="comment"></textarea>
+            <button id="submit-button" value="{{id}}" type="submit">Submit</button>
+          </form>
+        </div> --}}
+     {{!-- <div class="comments">
+  {{#each comment}}
+    <section class="comment">
+      <div class="meta">
+        {{user.name}}
+        on
+        {{format_date created_at}}
+      </div>
+      <div class="text">
+        {{comment_text}}
+      </div>
+    </section>
+  {{/each}}
+</div> --}}
+        {{!-- <p>\{{user_id}}</p> --}}
+      </div>
     \{{/opportunities}}
-    \{{else}}
+  \{{else}}
     <p>No opportunities found.</p>
-    \{{/if}}
+  \{{/if}}
+  </div>
+</script>
     
      
     
@@ -135,30 +183,22 @@
                     error: function () {
                         console.log("An error occurred while processing the search request.");
                     }
-                }); //end of ajax
+                }); 
 
                 $("#opportunities").html(opportunitiesTemplate(response));
 
          
-        }); //end of search form
-      }); //end of document ready
-
+        }); 
+      }); 
+Handlebars.registerHelper('format_date', function (date) {
+                const dateObj = new Date(date);
+                const day = dateObj.getUTCDate().toString().padStart(2, '0');
+                const month = (dateObj.getUTCMonth() + 1).toString().padStart(2, '0');
+                const year = dateObj.getUTCFullYear();
+                const formattedDate = `${month}/${day}/${year}`;
+                return formattedDate;
+            });
    
-  </script>
- <script>
-
-const hospitalList = [
-    {{#markerList}}
-          {
-            name: "{{this.name}}",
-            address: "{{this.address}}",
-            lat: {{this.lat}},
-            lng: {{this.lng}},
-          },  
-             
-    {{/markerList}}
-]
-    
   </script>
   <script src="javascript/search.js"></script>
  

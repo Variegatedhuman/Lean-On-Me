@@ -27,7 +27,7 @@ const handleSubmit = async (e) => {
 searchForm.addEventListener("submit", handleSubmit);
 
 console.log("search js");
-var map = L.map('map').setView([41.8781, -87.8998], 10);
+var map = L.map('map').setView([41.8781, -87.8998], 9);
 
 
 /**/
