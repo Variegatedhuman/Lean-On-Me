@@ -35,31 +35,31 @@ User.init(
                 len: [8],
             },
         },
-        location: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        age: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                min: 13,
-            }
-        },
-        gender: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        language: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            get(){
-                return this.getDataValue("language").split(";")
-            },
-            set(val){
-                this.setDataValue("language", val.join(";"))
-            }
-        }
+        // location: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // age: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     validate: {
+        //         min: 13,
+        //     }
+        // },
+        // gender: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        // },
+        // language: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false,
+        //     get(){
+        //         return this.getDataValue("language").split(";")
+        //     },
+        //     set(val){
+        //         this.setDataValue("language", val.join(";"))
+        //     }
+        // }
     },
     {
         hooks: {
