@@ -33,8 +33,6 @@ router.get('/search', async (req, res) => {
             "lng": -87.6244,
         }]
     }
-
-
     try {     
         res.json({data:markerList});
     } catch (err) {

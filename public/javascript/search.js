@@ -25,3 +25,31 @@ const handleSubmit = async (e) => {
 };
 
 searchForm.addEventListener("submit", handleSubmit);
+
+console.log("search js");
+var map = L.map('map').setView([41.8781, -87.8998], 10);
+
+
+/**/
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+
+//L.marker([41.8781, -87.6298]).addTo(map);
+
+//this creates all the makers from hospitallist
+hospitalList.map(hospital => {
+  //hospital.type //education or healthcare
+  L.marker([hospital.lat, hospital.lng], {
+      title: hospital.name
+
+
+  }).addTo(map);
+});
+
+
+
+
+
