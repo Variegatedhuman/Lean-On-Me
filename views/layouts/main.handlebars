@@ -5,22 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css">
     <title>Lean On Me</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-      crossorigin=""
-    />
-
-    <script
-      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-      crossorigin=""
-    ></script>
-    <style>
-      #map { height: 180px; }
-    </style>
-  </head>
+      </head>
   <body>
 
     <div class="wrapper">
@@ -60,45 +45,7 @@
   {{#if loggedIn}}
   <script src="/public/javascript/logout.js"></script>
   {{/if}}
-  <script>
-    var map = L.map('map').setView([41.8781, -87.6298], 13);
-
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    L.marker([41.8781, -87.6298]).addTo(map);
-
-    const hospitalList = [
-      {
-        name: "Northwestern Memorial Hospital",
-        address: "251 E Huron St, Chicago, IL 60611",
-        lat: 41.8939,
-        lng: -87.6228,
-      }, {
-        name: "Northwestern Memorial Hospital",
-        address: "251 E Huron St, Chicago, IL 60611",
-        lat: 41.8939,
-        lng: -87.6228,
-      }, {
-        name: "Northwestern Memorial Hospital",
-        address: "251 E Huron St, Chicago, IL 60611",
-        lat: 45.8939,
-        lng: -84.6228,
-      }, {
-        name: "Northwestern Memorial Hospital",
-        address: "251 E Huron St, Chicago, IL 60611",
-        lat: 49.8939,
-        lng: -82.6228,
-    }
-]
-{{markerList}}
-
-
-
-
-  </script>
+ 
 </body>
 
 </html>
