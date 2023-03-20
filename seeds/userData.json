@@ -1,14 +1,8 @@
 [
       {
         "name": "John Smith",
-        "age": 28,
-        "gender": "male",
         "password": "12345678",
-        "location": "Chicago, IL",
-        "email": "john.smith@gmail.com",
-        "language": ["English", "Spanish"]
-
-
+        "email": "john.smith@gmail.com"
       }
     
     ]
