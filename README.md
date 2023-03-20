@@ -56,7 +56,9 @@ Email: rypetty55@gmail.com, munazekia@gmail.com, agmspu@gmail.com
 
 ## Credits
 
+- JavaScript
 - NodeJS
+- Handlebars
 - ExpressJS
 - Sequelize
 - MySql
