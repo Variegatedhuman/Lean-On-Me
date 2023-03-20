@@ -363,4 +363,34 @@ h3 {
   font-size: .5em;
 }
 
+.footer{
+  display: flex;
+  align-items: left;
+  margin: 0% 1% 0% 0%;
+  font-size: 1.2em;
+  background-color: #f8ededd0;
+  text-shadow: 2px 2px 18px rgb(22, 139, 217);
+  flex-direction: row;
+  justify-content: space-around;
 
+
+}
+.contact {
+  background-color: #f8ededd0;
+  text-shadow: 2px 2px 18px rgb(22, 139, 217);
+  font-size: 1.3rem;
+
+}
+.mission{
+  font-size: 1.3rem;
+  background-color: #f8ededd0;
+  width: 350px;
+  border: 15px solid rgb(22, 139, 217);
+  border-radius: 30px;
+  padding: 4px;
+  margin-top: 0;
+  text-align: center;
+  word-spacing: 8px;
+  word-break: normal;
+  word-wrap: break-word;
+}
