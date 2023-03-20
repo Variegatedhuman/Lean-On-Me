@@ -29,7 +29,7 @@ newProjectForm.addEventListener('submit', async (e) => {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/profile');
       } else {
         alert('Failed to create post');
       }
@@ -56,7 +56,7 @@ deleteButtons.forEach((button) => {
       });
 
       if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/profile');
       } else {
         alert('Failed to delete post');
       }

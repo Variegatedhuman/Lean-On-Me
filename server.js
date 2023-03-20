@@ -5,13 +5,12 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const commentRoutes = require('./controllers/api/comment-routes');
-
-
+require('dotenv').config();
 
 // setup
 
 async function getCord() {
-    const apikey = "5d8f706975b0652dc3b0077ecad2304a";
+    const apikey = process.env.API_KEY;
     const search = "251 E Huron St, Chicago, IL 60611";
     const coordinatesURL = `https://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=5&appid=${apikey}`
 
