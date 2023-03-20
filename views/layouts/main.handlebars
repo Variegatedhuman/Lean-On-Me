@@ -22,9 +22,9 @@
           <a href="/" class="homepage">Homepage</a>
           {{else}}
           <a href="/" class="homepage">Homepage</a>
-        </div>
-        <div>
           {{/if}}
+          </div>
+        <div>
           {{#if loggedIn}}
           <a href="/profile">Profile</a>
           {{/if}}
@@ -33,7 +33,7 @@
           {{#if loggedIn}}
           <a href="/logout" class="nav-link">Logout</a>
           {{else}}
-          <a href="/login">Login</a>
+          <a href="/login">Login/Signup</a>
           {{/if}}
         </div>
       </nav>
@@ -57,15 +57,7 @@
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
-  <script>
-    const logoutButton = document.querySelector('.nav-link');
-    logoutButton.addEventListener('click', async (event) => {
-      event.preventDefault(); const response = await fetch('/logout', {
-        method:
-          'POST'
-      }); window.location.href = '/';
-    });
-  </script>
+  
 </body>
 
 </html>

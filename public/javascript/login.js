@@ -13,7 +13,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert(response.statusText);
+        document.querySelector(".login-error").innerText="Invalid username and/ or Password";
       }
     }
   };
@@ -34,7 +34,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert(response.statusText);
+        document.querySelector("profile-error").innerText="Error creating newuer, make sure email is formatted correctly";
       }
     }
   };
