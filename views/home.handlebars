@@ -28,9 +28,9 @@
         <button type="submit">Search</button>
     </form>
 
-    <h2 class"filter-by">Filter by:</h2>
+    <h2 class="filter-by">Filter by:</h2>
     <form id="" class="filter-form" action="/" method="post">
-        <label for="category">Category:</label>
+        <label class="cat-label" for="category">Category:</label>
         <select id="category" name="category">
             <option value="">--Any--</option>
             <option value="healthcare">Healthcare</option>
@@ -57,9 +57,7 @@
             <option value="mandarin">Mandarin</option>
         </select><br> --}}
 
-        <!-- Add additional filters here -->
-
-        <button type="submit">Apply Filters</button>
+        <button class="filter-button" type="submit">Apply Filters</button>
 
         <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
@@ -134,7 +132,7 @@ const hospitalList = [
       </div>
     \{{/opportunities}}
   \{{else}}
-    <p>No opportunities found.</p>
+    <p class="no-opp">No projects found!</p>
   \{{/if}}
   </div>
 </script>
@@ -156,7 +154,6 @@ const hospitalList = [
         var is18OrOlder = $("#age").is(":checked");
         var language = $("#language").val();
         var date = $("#date").val();
-        // Add additional filters here
 
                 // Send search request to server
                 $.ajax({
@@ -170,7 +167,6 @@ const hospitalList = [
                         is18OrOlder: is18OrOlder,
                         language: language
 
-                        // Add additional filters here
                     },
                     success: function (response) {
                         // Render the search results with the Handlebars template
